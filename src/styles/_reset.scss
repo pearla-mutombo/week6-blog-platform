@@ -1,0 +1,61 @@
+@use "variables" as *;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: $font-family-base;
+  background:
+    radial-gradient(circle at top, rgb(0 255 102 / 6%), transparent 35%),
+    $color-background;
+  color: $color-text;
+  line-height: 1.6;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ul,
+ol {
+  padding-left: $spacing-lg;
+}
+
+::selection {
+  background: $color-primary;
+  color: $color-background;
+}
+
+:focus-visible {
+  outline: 2px solid $color-primary;
+  outline-offset: 3px;
+}
