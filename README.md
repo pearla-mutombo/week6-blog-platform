@@ -24,11 +24,11 @@ The futuristic visual language was inspired by digital environments, technology,
 
 The purple and cyan color palette represents the contrast between mystery and technology:
 
-* **Purple** represents imagination, creativity, and the unknown.
-* **Cyan** represents technology, connectivity, and digital information.
-* **Dark backgrounds** create the feeling of entering a deeper digital environment.
-* **Monospace typography** reinforces the terminal-inspired aesthetic.
-* **Glowing borders and shadows** create the feeling of a living digital interface.
+- **Purple** represents imagination, creativity, and the unknown.
+- **Cyan** represents technology, connectivity, and digital information.
+- **Dark backgrounds** create the feeling of entering a deeper digital environment.
+- **Monospace typography** reinforces the terminal-inspired aesthetic.
+- **Glowing borders and shadows** create the feeling of a living digital interface.
 
 ### 🐇 The Rabbit Hole
 
@@ -50,34 +50,34 @@ The rabbit hole therefore became a visual metaphor for both the application's er
 
 ## Public Experience
 
-* View all published blog posts
-* View individual blog posts
-* Read Markdown-formatted content
-* See blog author information
-* See publication dates
-* Responsive layout for different screen sizes
-* Custom NEXUS 404 experience
+- View all published blog posts
+- View individual blog posts
+- Read Markdown-formatted content
+- See blog author information
+- See publication dates
+- Responsive layout for different screen sizes
+- Custom NEXUS 404 experience
 
 ## Authentication
 
-* Email/password registration
-* Email/password login
-* Persistent Supabase authentication sessions
-* Display name stored in authentication metadata
-* Authenticated user email displayed in the navigation
-* Logout functionality
-* Logged-in users redirected away from login and registration pages
-* Protected authenticated routes
+- Email/password registration
+- Email/password login
+- Persistent Supabase authentication sessions
+- Display name stored in authentication metadata
+- Authenticated user email displayed in the navigation
+- Logout functionality
+- Logged-in users redirected away from login and registration pages
+- Protected authenticated routes
 
 ## Blog Management
 
 Authenticated users can:
 
-* Create blog posts
-* View their own blog posts
-* Edit their own blog posts
-* Delete their own blog posts
-* View individual blog details
+- Create blog posts
+- View their own blog posts
+- Edit their own blog posts
+- Delete their own blog posts
+- View individual blog details
 
 Blog ownership is enforced through Supabase Row Level Security.
 
@@ -87,34 +87,40 @@ Blog content supports Markdown using `react-markdown`.
 
 Supported content includes:
 
-* Headings
-* Bold text
-* Italic text
-* Lists
-* Links
-* Inline code
-* Other standard Markdown formatting
+- Headings
+- Bold text
+- Italic text
+- Lists
+- Links
+- Inline code
+- Other standard Markdown formatting
 
 Markdown is rendered with `react-markdown` rather than using `dangerouslySetInnerHTML`.
 
 ---
 
+## 🌐 Live Demo
+
+**Live Site:** https://nexus-blog-platform.netlify.app/
+
+> Explore NEXUS — a futuristic digital oasis for connecting ideas, stories, and perspectives.
+
 # 🛠️ Technologies
 
-* React
-* Vite
-* React Router
-* Supabase
-* PostgreSQL
-* SCSS
-* React Markdown
-* Vitest
-* React Testing Library
-* Oxlint
-* Stylelint
-* HTMLHint
-* GitHub Actions
-* Netlify
+- React
+- Vite
+- React Router
+- Supabase
+- PostgreSQL
+- SCSS
+- React Markdown
+- Vitest
+- React Testing Library
+- Oxlint
+- Stylelint
+- HTMLHint
+- GitHub Actions
+- Netlify
 
 ---
 
@@ -139,10 +145,10 @@ The `blogs` table uses Supabase Row Level Security.
 
 The database allows:
 
-* Public users to read blog posts
-* Authenticated users to create their own posts
-* Authors to update their own posts
-* Authors to delete their own posts
+- Public users to read blog posts
+- Authenticated users to create their own posts
+- Authors to update their own posts
+- Authors to delete their own posts
 
 Blog ownership is tied to the authenticated Supabase user through `author_id`.
 
@@ -154,21 +160,21 @@ The application also performs an author check before displaying the edit interfa
 
 The `blogs` table contains:
 
-* `id`
-* `title`
-* `excerpt`
-* `content`
-* `author_id`
-* `author_name`
-* `created_at`
-* `updated_at`
+- `id`
+- `title`
+- `excerpt`
+- `content`
+- `author_id`
+- `author_name`
+- `created_at`
+- `updated_at`
 
 Database constraints enforce:
 
-* Title: 3–120 characters
-* Excerpt: 10–250 characters
-* Content: minimum 50 characters
-* Author name: 2–80 characters
+- Title: 3–120 characters
+- Excerpt: 10–250 characters
+- Content: minimum 50 characters
+- Author name: 2–80 characters
 
 The application updates `updated_at` whenever a blog post is edited.
 
@@ -343,28 +349,28 @@ It is about learning how to think about an application as a complete system.
 
 This project strengthened my understanding of:
 
-* React component architecture
-* React Router
-* Protected routes
-* Authentication
-* Supabase
-* PostgreSQL
-* Row Level Security
-* CRUD operations
-* API/database communication
-* Reusable components
-* Custom React hooks
-* Form validation
-* Markdown rendering
-* SCSS architecture
-* Responsive design
-* Accessibility
-* Automated testing
-* Git and GitHub workflows
-* Pull requests
-* Continuous integration
-* Deployment preparation
-* Debugging
+- React component architecture
+- React Router
+- Protected routes
+- Authentication
+- Supabase
+- PostgreSQL
+- Row Level Security
+- CRUD operations
+- API/database communication
+- Reusable components
+- Custom React hooks
+- Form validation
+- Markdown rendering
+- SCSS architecture
+- Responsive design
+- Accessibility
+- Automated testing
+- Git and GitHub workflows
+- Pull requests
+- Continuous integration
+- Deployment preparation
+- Debugging
 
 Most importantly, I learned to be more patient and methodical when solving problems.
 
