@@ -2,17 +2,27 @@ import { Link } from "react-router-dom";
 
 function BlogCard({ blog }) {
   return (
-    <article>
-      <h3>{blog.title}</h3>
+    <article className="blog-card">
+      <div className="blog-card__top">
+        <span className="blog-card__tag">&gt;_ BLOG</span>
+        <span className="blog-card__date">
+          {new Date(blog.created_at).toLocaleDateString()}
+        </span>
+      </div>
 
-      <p>{blog.excerpt}</p>
+      <h3 className="blog-card__title">{blog.title}</h3>
 
-      <p>
-        By {blog.author_name} on{" "}
-        {new Date(blog.created_at).toLocaleDateString()}
-      </p>
+      <p className="blog-card__excerpt">{blog.excerpt}</p>
 
-      <Link to={`/blogs/${blog.id}`}>Read More</Link>
+      <div className="blog-card__footer">
+        <p className="blog-card__author">
+          By <span>{blog.author_name}</span>
+        </p>
+
+        <Link className="blog-card__link" to={`/blogs/${blog.id}`}>
+          Read More <span aria-hidden="true">→</span>
+        </Link>
+      </div>
     </article>
   );
 }

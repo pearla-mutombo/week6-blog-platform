@@ -33,6 +33,8 @@ function Header() {
 
           {user ? (
             <>
+              <span className="site-header__user-email">{user.email}</span>
+
               <NavLink
                 className={({ isActive }) =>
                   `site-header__link${

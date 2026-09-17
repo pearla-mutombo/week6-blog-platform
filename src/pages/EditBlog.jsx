@@ -29,7 +29,7 @@ function EditBlog() {
           setLoading(false);
           return;
         }
-        console.log("Edit blog data:", data);
+
         setBlog(data);
       } catch (fetchError) {
         setError(fetchError.message);
@@ -89,25 +89,36 @@ function EditBlog() {
   }
 
   return (
-    <main>
-      <h1>Edit Blog</h1>
-      <p>Update your blog post below.</p>
+    <main className="edit-blog">
+      <section className="edit-blog__intro">
+        <p className="edit-blog__eyebrow">&gt;_ EDIT TRANSMISSION</p>
+        <h1>Edit Blog</h1>
+        <p className="edit-blog__subtitle">Update your blog post below.</p>
+      </section>
 
-      {success && <p role="status">{success}</p>}
+      {success && (
+        <p className="edit-blog__success" role="status">
+          {success}
+        </p>
+      )}
 
-      <BlogForm
-        key={blog.id}
-        initialValues={{
-          title: blog.title,
-          excerpt: blog.excerpt,
-          content: blog.content,
-        }}
-        onSubmit={handleUpdate}
-        submitting={submitting}
-        submitLabel="Save Changes"
-      />
+      <section className="edit-blog__form">
+        <BlogForm
+          key={blog.id}
+          initialValues={{
+            title: blog.title,
+            excerpt: blog.excerpt,
+            content: blog.content,
+          }}
+          onSubmit={handleUpdate}
+          submitting={submitting}
+          submitLabel="Save Changes"
+        />
+      </section>
 
-      <Link to={`/blogs/${blog.id}`}>Cancel</Link>
+      <Link className="edit-blog__cancel-link" to={`/blogs/${blog.id}`}>
+        Cancel
+      </Link>
     </main>
   );
 }

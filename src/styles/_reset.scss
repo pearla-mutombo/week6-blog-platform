@@ -15,10 +15,20 @@ body {
   min-height: 100vh;
   font-family: $font-family-base;
   background:
-    radial-gradient(circle at top, rgb(0 255 102 / 6%), transparent 35%),
+    radial-gradient(
+      circle at 15% 10%,
+      rgb(139 92 246 / 12%),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 20%,
+      rgb(34 211 238 / 8%),
+      transparent 28%
+    ),
     $color-background;
   color: $color-text;
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 button,
@@ -52,10 +62,10 @@ ol {
 
 ::selection {
   background: $color-primary;
-  color: $color-background;
+  color: $color-text;
 }
 
 :focus-visible {
-  outline: 2px solid $color-primary;
+  outline: 2px solid $color-secondary;
   outline-offset: 3px;
 }

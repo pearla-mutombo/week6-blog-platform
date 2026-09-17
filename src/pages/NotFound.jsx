@@ -1,10 +1,17 @@
 import { Link } from "react-router-dom";
+import nexusRabbitHole from "../assets/nexus-404-rabbit-hole.png";
 
 function NotFound() {
   return (
     <main className="not-found">
       <section className="not-found__content">
         <p className="not-found__eyebrow">&gt;_ ERROR 404</p>
+
+        <img
+          className="not-found__image"
+          src={nexusRabbitHole}
+          alt="Nexus-404 rabbit hole"
+        />
 
         <h1>Page Not Found</h1>
 
