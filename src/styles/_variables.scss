@@ -1,0 +1,52 @@
+// NEXUS futuristic editorial color palette
+$color-primary: #8b5cf6;
+$color-primary-dark: #7c3aed;
+$color-secondary: #22d3ee;
+$color-secondary-dark: #06b6d4;
+$color-background: #070b18;
+$color-background-light: #0d1326;
+$color-surface: #11182d;
+$color-surface-light: #18213d;
+$color-text: #f4f7ff;
+$color-text-muted: #9aa8c7;
+$color-border: #273354;
+$color-danger: #fb7185;
+$color-success: #34d399;
+$color-code-background: #0a1022;
+
+// Typography
+$font-family-base:
+  inter,
+  -apple-system,
+  blinkmacsystemfont,
+  "Segoe UI",
+  sans-serif;
+$font-family-mono:
+  "SFMono-Regular",
+  consolas,
+  "Liberation Mono",
+  monospace;
+
+// Layout
+$container-width: 1180px;
+
+// Spacing
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 2rem;
+$spacing-2xl: 3rem;
+$spacing-3xl: 5rem;
+
+// Borders
+$border-radius-sm: 0.5rem;
+$border-radius-md: 0.75rem;
+$border-radius-lg: 1rem;
+$border-radius-xl: 1.25rem;
+
+// Shadows
+$shadow-sm: 0 8px 24px rgb(0 0 0 / 18%);
+$shadow-md: 0 16px 40px rgb(0 0 0 / 28%);
+$shadow-glow: 0 0 30px rgb(139 92 246 / 25%);
+$shadow-cyan: 0 0 30px rgb(34 211 238 / 18%);
