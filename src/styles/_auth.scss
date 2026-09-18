@@ -1,0 +1,201 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+// NEXUS button neon animation
+// ----------------------------------------
+
+@keyframes nexus-button-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 14px rgb(52 211 153 / 30%),
+      0 0 30px rgb(52 211 153 / 16%);
+  }
+
+  50% {
+    box-shadow:
+      0 0 20px rgb(52 211 153 / 45%),
+      0 0 42px rgb(52 211 153 / 25%);
+  }
+}
+
+// ----------------------------------------
+// NEXUS authentication page
+// ----------------------------------------
+
+.auth-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 65vh;
+  padding-block: $spacing-2xl;
+
+  &__card {
+    width: min(100%, 520px);
+    padding: $spacing-xl;
+    border: 1px solid rgb(139 92 246 / 30%);
+    border-radius: $border-radius-xl;
+    background:
+      linear-gradient(145deg, rgb(139 92 246 / 10%), rgb(34 211 238 / 4%)),
+      $color-surface;
+    box-shadow:
+      $shadow-md,
+      0 0 35px rgb(139 92 246 / 10%);
+  }
+
+  &__header {
+    margin-bottom: $spacing-xl;
+    text-align: center;
+
+    h1 {
+      margin-bottom: $spacing-sm;
+      color: $color-text;
+    }
+
+    > p:last-child {
+      color: $color-text-muted;
+    }
+  }
+
+  &__eyebrow {
+    margin-bottom: $spacing-md;
+    color: $color-secondary;
+    font-family: $font-family-mono;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+  }
+
+  &__switch {
+    margin-top: $spacing-xl;
+    padding-top: $spacing-lg;
+    border-top: 1px solid rgb(34 211 238 / 12%);
+    text-align: center;
+    color: $color-text-muted;
+
+    a {
+      color: $color-secondary;
+      font-family: $font-family-mono;
+      font-weight: 700;
+
+      &:hover {
+        color: $color-success;
+        text-shadow: 0 0 12px rgb(52 211 153 / 35%);
+      }
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+  }
+
+  form > div {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+
+  form label {
+    color: $color-success;
+    font-family: $font-family-mono;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  form input {
+    width: 100%;
+    border: 1px solid $color-border;
+    border-radius: $border-radius-md;
+    padding: 0.8rem 0.9rem;
+    background: $color-code-background;
+    color: $color-text;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.25s ease,
+      background-color 0.2s ease;
+
+    &::placeholder {
+      color: rgb(154 168 199 / 65%);
+    }
+
+    &:focus {
+      border-color: $color-success;
+      background: $color-background-light;
+      box-shadow:
+        0 0 0 3px rgb(52 211 153 / 10%),
+        0 0 22px rgb(52 211 153 / 18%);
+      outline: none;
+    }
+  }
+
+  form button[type="submit"] {
+    width: 100%;
+    min-height: 2.75rem;
+    margin-top: $spacing-sm;
+    border: 1px solid rgb(139 92 246 / 65%);
+    border-radius: $border-radius-md;
+    background: linear-gradient(
+      135deg,
+      rgb(139 92 246 / 95%),
+      rgb(124 58 237 / 95%)
+    );
+    color: $color-text;
+    font-family: $font-family-mono;
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    box-shadow: 0 0 18px rgb(139 92 246 / 18%);
+    transition:
+      background 0.25s ease,
+      border-color 0.25s ease,
+      box-shadow 0.25s ease,
+      color 0.25s ease,
+      transform 0.2s ease;
+
+    &:hover:not(:disabled) {
+      border-color: $color-success;
+      background: linear-gradient(135deg, $color-success, #22c55e);
+      color: $color-background;
+      box-shadow:
+        0 0 14px rgb(52 211 153 / 35%),
+        0 0 30px rgb(52 211 153 / 20%);
+      transform: translateY(-2px);
+      animation: nexus-button-pulse 1.5s ease-in-out infinite;
+    }
+
+    &:active:not(:disabled) {
+      transform: translateY(0);
+      animation: none;
+    }
+  }
+
+  form [role="alert"] {
+    padding: 0.75rem 0.9rem;
+    border: 1px solid rgb(251 113 133 / 35%);
+    border-radius: $border-radius-md;
+    background: rgb(251 113 133 / 8%);
+    color: $color-danger;
+  }
+
+  form [role="status"] {
+    padding: 0.75rem 0.9rem;
+    border: 1px solid rgb(52 211 153 / 35%);
+    border-radius: $border-radius-md;
+    background: rgb(52 211 153 / 8%);
+    color: $color-success;
+  }
+}
+
+@include respond-to(tablet) {
+  .auth-page {
+    &__card {
+      padding: $spacing-2xl;
+    }
+  }
+}
+
+// ----------------------------------------

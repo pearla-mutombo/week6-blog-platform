@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { AuthContext } from "./AuthContext";
 import { supabase } from "../lib/supabaseClient";
 
-export function AuthProvider({ children }) {
+export function useAuth() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -30,7 +29,7 @@ export function AuthProvider({ children }) {
     };
   }, []);
 
-  async function register(email, password, displayName) {
+  async function signUp(email, password, displayName) {
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
@@ -48,7 +47,7 @@ export function AuthProvider({ children }) {
     return data;
   }
 
-  async function login(email, password) {
+  async function signIn(email, password) {
     const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password,
@@ -61,7 +60,7 @@ export function AuthProvider({ children }) {
     return data;
   }
 
-  async function logout() {
+  async function signOut() {
     const { error } = await supabase.auth.signOut();
 
     if (error) {
@@ -69,17 +68,11 @@ export function AuthProvider({ children }) {
     }
   }
 
-  const value = {
+  return {
     user,
     loading,
-    register,
-    login,
-    logout,
+    signUp,
+    signIn,
+    signOut,
   };
-
-  return (
-    <AuthContext.Provider value={value}>
-      {children}
-    </AuthContext.Provider>
-  );
 }

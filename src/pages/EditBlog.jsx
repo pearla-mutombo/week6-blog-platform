@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import BlogForm from "../components/blogs/BlogForm";
-import { useAuthContext } from "../hooks/useAuthContext";
+
 import { useBlogs } from "../hooks/useBlogs";
 
-function EditBlog() {
+function EditBlog({ user }) {
   const { blogId } = useParams();
-  const { user } = useAuthContext();
+
   const { getBlog, updateBlog } = useBlogs();
   const navigate = useNavigate();
 

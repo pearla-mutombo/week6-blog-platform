@@ -1,0 +1,324 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+// ----------------------------------------
+// NEXUS futuristic header
+// ----------------------------------------
+
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgb(139 92 246 / 20%);
+  background: rgb(7 11 24 / 92%);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 10px 35px rgb(0 0 0 / 25%);
+
+  &__inner {
+    @include container;
+
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+    padding-block: $spacing-md;
+  }
+
+  &__user-email {
+    color: $color-text-muted;
+    font-family: $font-family-mono;
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+}
+
+.site-header {
+  &__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    width: fit-content;
+    color: $color-text;
+    font-family: $font-family-mono;
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+
+    &:hover {
+      color: $color-text;
+      text-shadow: none;
+    }
+  }
+
+  &__brand-symbol {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 3.1rem;
+    min-height: 2rem;
+    padding-inline: 0.45rem;
+    border: 1px solid rgb(34 211 238 / 45%);
+    border-radius: $border-radius-sm;
+    background: rgb(139 92 246 / 18%);
+    color: $color-secondary;
+    box-shadow: $shadow-cyan;
+    font-family: $font-family-mono;
+    font-size: 0.85rem;
+    letter-spacing: 0;
+  }
+}
+
+.site-header {
+  &__nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.5rem;
+    padding: 0.55rem 0.8rem;
+    border: 1px solid transparent;
+    border-radius: $border-radius-md;
+    color: $color-text-muted;
+    font-size: 0.95rem;
+    font-weight: 600;
+    white-space: nowrap;
+
+    &:hover {
+      border-color: rgb(34 211 238 / 25%);
+      background: rgb(34 211 238 / 6%);
+      color: $color-secondary;
+      text-shadow: 0 0 10px rgb(34 211 238 / 30%);
+    }
+
+    &--active {
+      border-color: rgb(139 92 246 / 35%);
+      background: rgb(139 92 246 / 12%);
+      color: $color-primary;
+      box-shadow: 0 0 18px rgb(139 92 246 / 10%);
+    }
+  }
+}
+
+.site-header {
+  &__logout {
+    min-height: 2.5rem;
+    padding: 0.55rem 0.9rem;
+    border: 1px solid rgb(52 211 153 / 55%);
+    border-radius: $border-radius-md;
+    background: rgb(52 211 153 / 10%);
+    color: $color-success;
+    font-family: $font-family-mono;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      box-shadow 0.2s ease,
+      color 0.2s ease,
+      transform 0.2s ease;
+
+    &:hover {
+      border-color: $color-success;
+      background: rgb(52 211 153 / 18%);
+      color: $color-text;
+      box-shadow: 0 0 20px rgb(52 211 153 / 22%);
+      transform: translateY(-1px);
+    }
+  }
+}
+
+@include respond-to(desktop) {
+  .site-header {
+    &__inner {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: $spacing-xl;
+      padding-block: 0.9rem;
+    }
+
+    &__nav {
+      justify-content: flex-end;
+      gap: 0.65rem;
+    }
+  }
+}
+
+.blog-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  overflow: hidden;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-lg;
+  padding: $spacing-lg;
+  background: linear-gradient(145deg, $color-surface, $color-background-light);
+  box-shadow: $shadow-sm;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+
+  &:hover {
+    border-color: rgb(139 92 246 / 45%);
+    box-shadow: $shadow-md, $shadow-glow;
+    transform: translateY(-4px);
+  }
+}
+
+.blog-card {
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $spacing-md;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__tag {
+    color: $color-secondary;
+    font-family: $font-family-mono;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+
+  &__date {
+    color: $color-text-muted;
+    font-family: $font-family-mono;
+    font-size: 0.75rem;
+  }
+
+  &__title {
+    margin-bottom: $spacing-sm;
+    color: $color-primary;
+    font-size: 1.4rem;
+    letter-spacing: -0.02em;
+  }
+
+  &__excerpt {
+    flex-grow: 1;
+    margin-bottom: $spacing-lg;
+    color: $color-text-muted;
+    line-height: 1.7;
+  }
+}
+
+.blog-card {
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $spacing-md;
+    padding-top: $spacing-md;
+    border-top: 1px solid rgb(34 211 238 / 12%);
+  }
+
+  &__author {
+    margin: 0;
+    color: $color-text-muted;
+    font-size: 0.85rem;
+
+    span {
+      color: $color-success;
+      font-weight: 700;
+    }
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid rgb(34 211 238 / 30%);
+    border-radius: $border-radius-sm;
+    background: rgb(34 211 238 / 6%);
+    color: $color-secondary;
+    font-family: $font-family-mono;
+    font-size: 0.8rem;
+    font-weight: 700;
+    white-space: nowrap;
+
+    &:hover {
+      border-color: $color-secondary;
+      background: rgb(34 211 238 / 12%);
+      color: $color-text;
+      box-shadow: $shadow-cyan;
+      text-shadow: none;
+      transform: translateX(2px);
+    }
+  }
+}
+
+// ----------------------------------------
+// NEXUS futuristic footer
+// ----------------------------------------
+
+.site-footer {
+  margin-top: $spacing-3xl;
+  border-top: 1px solid rgb(139 92 246 / 20%);
+  background:
+    linear-gradient(180deg, rgb(139 92 246 / 6%), rgb(7 11 24 / 95%)),
+    $color-background;
+  box-shadow: 0 -10px 35px rgb(0 0 0 / 20%);
+
+  &__inner {
+    @include container;
+
+    padding-block: $spacing-2xl;
+    text-align: center;
+  }
+
+  &__brand {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    margin-bottom: $spacing-md;
+    color: $color-text;
+    font-family: $font-family-mono;
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+  }
+
+  &__symbol {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 3.1rem;
+    min-height: 2rem;
+    padding-inline: 0.45rem;
+    border: 1px solid rgb(34 211 238 / 45%);
+    border-radius: $border-radius-sm;
+    background: rgb(139 92 246 / 18%);
+    color: $color-secondary;
+    box-shadow: $shadow-cyan;
+    font-family: $font-family-mono;
+    font-size: 0.85rem;
+    letter-spacing: 0;
+  }
+
+  &__tagline {
+    margin-bottom: $spacing-md;
+    color: $color-text-muted;
+    font-size: 0.95rem;
+  }
+
+  &__copyright {
+    color: $color-success;
+    font-family: $font-family-mono;
+    font-size: 0.75rem;
+    letter-spacing: 0.03em;
+  }
+}
+
+// ----------------------------------------
