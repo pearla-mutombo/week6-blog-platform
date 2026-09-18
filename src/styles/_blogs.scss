@@ -1,0 +1,456 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+// NEXUS blog details
+// ----------------------------------------
+
+.blog-details {
+  max-width: 850px;
+
+  &__article {
+    border: 1px solid $color-border;
+    border-radius: $border-radius-lg;
+    padding: $spacing-lg;
+    background: $color-surface;
+    box-shadow: $shadow-md;
+  }
+
+  &__header {
+    margin-bottom: $spacing-xl;
+    padding-bottom: $spacing-lg;
+    border-bottom: 1px solid $color-border;
+  }
+
+  &__title {
+    margin-bottom: $spacing-sm;
+    color: $color-text;
+  }
+
+  &__meta {
+    margin-bottom: $spacing-lg;
+    font-family: $font-family-mono;
+    font-size: 0.9rem;
+    color: $color-primary;
+  }
+
+  &__excerpt {
+    font-size: 1.1rem;
+    color: $color-text-muted;
+  }
+
+  &__content {
+    color: $color-text;
+
+    h1,
+    h2,
+    h3 {
+      margin-top: $spacing-xl;
+      margin-bottom: $spacing-md;
+      color: $color-primary;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+    }
+
+    p {
+      margin-bottom: $spacing-md;
+      color: $color-text;
+    }
+
+    ul,
+    ol {
+      margin-bottom: $spacing-lg;
+      color: $color-text;
+    }
+
+    li {
+      margin-bottom: $spacing-xs;
+    }
+
+    strong {
+      color: $color-primary;
+    }
+
+    em {
+      color: #b9e8c7;
+    }
+
+    code {
+      padding: 0.15rem 0.4rem;
+      border: 1px solid $color-border;
+      border-radius: $border-radius-sm;
+      background: $color-code-background;
+      color: $color-primary;
+      font-family: $font-family-mono;
+      font-size: 0.9em;
+    }
+
+    a {
+      color: $color-primary;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+  }
+
+  &__back-link {
+    display: inline-block;
+    margin-top: $spacing-lg;
+    font-family: $font-family-mono;
+    color: $color-primary;
+
+    &::before {
+      content: "< ";
+    }
+  }
+
+  &__error {
+    margin-block: $spacing-md;
+    color: $color-danger;
+  }
+}
+
+// ----------------------------------------
+// Responsive layout
+// ----------------------------------------
+
+@include respond-to(tablet) {
+  .blog-details {
+    &__article {
+      padding: $spacing-xl;
+    }
+  }
+}
+
+@include respond-to(desktop) {
+  .blog-details {
+    &__article {
+      padding: $spacing-2xl;
+    }
+  }
+}
+
+.blog-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  overflow: hidden;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-lg;
+  padding: $spacing-lg;
+  background: linear-gradient(145deg, $color-surface, $color-background-light);
+  box-shadow: $shadow-sm;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+
+  &:hover {
+    border-color: rgb(139 92 246 / 45%);
+    box-shadow: $shadow-md, $shadow-glow;
+    transform: translateY(-4px);
+  }
+}
+
+.blog-card {
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $spacing-md;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__tag {
+    color: $color-secondary;
+    font-family: $font-family-mono;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+
+  &__date {
+    color: $color-text-muted;
+    font-family: $font-family-mono;
+    font-size: 0.75rem;
+  }
+
+  &__title {
+    margin-bottom: $spacing-sm;
+    color: $color-primary;
+    font-size: 1.4rem;
+    letter-spacing: -0.02em;
+  }
+
+  &__excerpt {
+    flex-grow: 1;
+    margin-bottom: $spacing-lg;
+    color: $color-text-muted;
+    line-height: 1.7;
+  }
+}
+
+.blog-card {
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $spacing-md;
+    padding-top: $spacing-md;
+    border-top: 1px solid rgb(34 211 238 / 12%);
+  }
+
+  &__author {
+    margin: 0;
+    color: $color-text-muted;
+    font-size: 0.85rem;
+
+    span {
+      color: $color-success;
+      font-weight: 700;
+    }
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid rgb(34 211 238 / 30%);
+    border-radius: $border-radius-sm;
+    background: rgb(34 211 238 / 6%);
+    color: $color-secondary;
+    font-family: $font-family-mono;
+    font-size: 0.8rem;
+    font-weight: 700;
+    white-space: nowrap;
+
+    &:hover {
+      border-color: $color-secondary;
+      background: rgb(34 211 238 / 12%);
+      color: $color-text;
+      box-shadow: $shadow-cyan;
+      text-shadow: none;
+      transform: translateX(2px);
+    }
+  }
+}
+
+// NEXUS My Blogs controls
+// ----------------------------------------
+
+.my-blogs {
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-sm;
+    margin-top: $spacing-md;
+  }
+
+  &__edit-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.5rem;
+    padding: 0.65rem 1rem;
+    border: 1px solid rgb(139 92 246 / 55%);
+    border-radius: $border-radius-md;
+    background: rgb(139 92 246 / 12%);
+    color: $color-primary;
+    font-family: $font-family-mono;
+    font-size: 0.85rem;
+    font-weight: 700;
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      box-shadow 0.2s ease,
+      color 0.2s ease,
+      transform 0.2s ease;
+
+    &:hover {
+      border-color: $color-success;
+      background: rgb(52 211 153 / 15%);
+      color: $color-success;
+      box-shadow: 0 0 20px rgb(52 211 153 / 25%);
+      text-shadow: none;
+      transform: translateY(-2px);
+    }
+  }
+
+  &__delete-button {
+    min-height: 2.5rem;
+    padding: 0.65rem 1rem;
+    border: 1px solid rgb(139 92 246 / 55%);
+    border-radius: $border-radius-md;
+    background: rgb(139 92 246 / 12%);
+    color: $color-primary;
+    font-family: $font-family-mono;
+    font-size: 0.85rem;
+    font-weight: 700;
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      box-shadow 0.2s ease,
+      color 0.2s ease,
+      transform 0.2s ease;
+
+    &:hover:not(:disabled) {
+      border-color: $color-danger;
+      background: rgb(251 113 133 / 12%);
+      color: $color-danger;
+      box-shadow: 0 0 20px rgb(251 113 133 / 22%);
+      transform: translateY(-2px);
+    }
+  }
+
+  &__back-link {
+    display: inline-flex;
+    align-items: center;
+    margin-top: $spacing-xl;
+    padding: 0.65rem 1rem;
+    border: 1px solid rgb(34 211 238 / 35%);
+    border-radius: $border-radius-md;
+    background: rgb(34 211 238 / 6%);
+    color: $color-secondary;
+    font-family: $font-family-mono;
+    font-size: 0.85rem;
+    font-weight: 700;
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      box-shadow 0.2s ease,
+      color 0.2s ease,
+      transform 0.2s ease;
+
+    &:hover {
+      border-color: $color-success;
+      background: rgb(52 211 153 / 12%);
+      color: $color-success;
+      box-shadow: 0 0 20px rgb(52 211 153 / 20%);
+      text-shadow: none;
+      transform: translateX(-2px);
+    }
+  }
+}
+
+// ----------------------------------------
+// NEXUS blog form
+// ----------------------------------------
+
+.new-blog,
+.edit-blog {
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+  }
+
+  form > div {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+
+  form label {
+    color: $color-success;
+    font-family: $font-family-mono;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  form input,
+  form textarea {
+    width: 100%;
+    border: 1px solid $color-border;
+    border-radius: $border-radius-md;
+    padding: 0.8rem 0.9rem;
+    background: $color-code-background;
+    color: $color-text;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.25s ease,
+      background-color 0.2s ease,
+      transform 0.2s ease;
+
+    &::placeholder {
+      color: rgb(154 168 199 / 65%);
+    }
+
+    &:focus {
+      border-color: $color-success;
+      background: $color-background-light;
+      box-shadow:
+        0 0 0 3px rgb(52 211 153 / 10%),
+        0 0 22px rgb(52 211 153 / 18%);
+      outline: none;
+    }
+  }
+
+  form textarea {
+    min-height: 12rem;
+    resize: vertical;
+  }
+
+  form button[type="submit"] {
+    align-self: flex-start;
+    min-height: 2.75rem;
+    margin-top: $spacing-sm;
+    padding: 0.75rem 1.2rem;
+    border: 1px solid rgb(139 92 246 / 65%);
+    border-radius: $border-radius-md;
+    background: linear-gradient(
+      135deg,
+      rgb(139 92 246 / 95%),
+      rgb(124 58 237 / 95%)
+    );
+    color: $color-text;
+    font-family: $font-family-mono;
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    box-shadow: 0 0 18px rgb(139 92 246 / 18%);
+    transition:
+      background 0.25s ease,
+      border-color 0.25s ease,
+      box-shadow 0.25s ease,
+      color 0.25s ease,
+      transform 0.2s ease;
+
+    &:hover:not(:disabled) {
+      border-color: $color-success;
+      background: linear-gradient(135deg, $color-success, #22c55e);
+      color: $color-background;
+      box-shadow:
+        0 0 14px rgb(52 211 153 / 35%),
+        0 0 30px rgb(52 211 153 / 20%);
+      transform: translateY(-2px);
+      animation: nexus-button-pulse 1.5s ease-in-out infinite;
+    }
+
+    &:active:not(:disabled) {
+      transform: translateY(0);
+      animation: none;
+    }
+  }
+
+  form [role="alert"] {
+    padding: 0.75rem 0.9rem;
+    border: 1px solid rgb(251 113 133 / 35%);
+    border-radius: $border-radius-md;
+    background: rgb(251 113 133 / 8%);
+    color: $color-danger;
+  }
+}
+
+// ----------------------------------------

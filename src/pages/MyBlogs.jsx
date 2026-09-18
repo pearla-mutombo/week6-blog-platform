@@ -1,11 +1,9 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import BlogCard from "../components/blogs/BlogCard";
-import { useAuthContext } from "../hooks/useAuthContext";
 import { useBlogs } from "../hooks/useBlogs";
 
-function MyBlogs() {
-  const { user } = useAuthContext();
+function MyBlogs({ user }) {
   const { blogs, loading, error, fetchMyBlogs, deleteBlog } = useBlogs();
 
   useEffect(() => {

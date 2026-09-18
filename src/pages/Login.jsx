@@ -1,10 +1,8 @@
 import { useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AuthForm from "../components/auth/AuthForm";
-import { useAuthContext } from "../hooks/useAuthContext";
 
-function Login() {
-  const { user, loading, login } = useAuthContext();
+function Login({ user, onLogin }) {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
@@ -12,12 +10,9 @@ function Login() {
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
   if (user) {
-    return <Navigate to="/" replace />;
+    navigate("/");
+    return null;
   }
 
   const fields = [
@@ -45,7 +40,7 @@ function Login() {
     setSubmitting(true);
 
     try {
-      await login(email, password);
+      await onLogin(email, password);
       navigate("/");
     } catch (authError) {
       setError(authError.message);

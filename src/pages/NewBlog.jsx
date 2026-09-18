@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import BlogForm from "../components/blogs/BlogForm";
-import { useAuthContext } from "../hooks/useAuthContext";
+
 import { useBlogs } from "../hooks/useBlogs";
 
-function NewBlog() {
-  const { user } = useAuthContext();
+function NewBlog({ user }) {
   const { createBlog } = useBlogs();
   const navigate = useNavigate();
 

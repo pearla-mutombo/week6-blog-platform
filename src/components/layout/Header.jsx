@@ -1,13 +1,11 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { useAuthContext } from "../../hooks/useAuthContext";
 
-function Header() {
-  const { user, logout } = useAuthContext();
+function Header({ user, onSignOut }) {
   const navigate = useNavigate();
 
   async function handleLogout() {
     try {
-      await logout();
+      await onSignOut();
       navigate("/");
     } catch (logoutError) {
       console.error("Logout failed:", logoutError);
